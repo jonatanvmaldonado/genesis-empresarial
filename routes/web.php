@@ -21,6 +21,7 @@ Route::delete('/comentario/{id}', 'ComentarioController@destroy')->name('comenta
 Route::get('/users', 'UserController@index');
 Route::post('/users', 'UserController@store')->name('users.store');
 Route::get('/users/{id}', 'UserController@show')->name('users.show');
+Route::put('/users', 'UserController@update')->name('users.update');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

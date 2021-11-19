@@ -33,7 +33,7 @@
             </div>
 
             <div style="display: flex; flex-direction: row; justify-content:space-between; align-items: center; padding: 10px 0;">
-                <h4>Publicaciones</h4>
+                <h4>Artículos publicados</h4>
                 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                     Crear
                 </button>

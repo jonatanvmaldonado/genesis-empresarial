@@ -15,7 +15,7 @@ class UserController extends Controller
 
     public function index()
     {
-        $users = User::latest()->get();
+        $users = User::orderBy('name', 'ASC')->get();
 
         return view('users.index', [
             'users' => $users
@@ -46,5 +46,23 @@ class UserController extends Controller
         return view('users.show', [
             'user' => $user
         ]);
+    }
+
+    public function update(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => ['required', 'email', 'unique:users']
+        ]);
+
+        $u = User::find($request->id);
+        $u->name = $request->name;
+        $u->email = $request->email;
+        if ($request->password) {
+            $u->password = bcrypt($request->password);
+        }
+        $u->save();
+
+        return back();
     }
 }
